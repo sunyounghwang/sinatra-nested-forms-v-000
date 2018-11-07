@@ -12,9 +12,7 @@ module FormsLab
 
     post "/pirates" do
       @pirate = Pirate.new(params[:pirate])
-      ships = params[:pirate][:ships].map { |ship_hash| Ship.new(ship_hash) }
-      @ship1 = ships[0]
-      @ship2 = ships[1]
+      @ships = params[:pirate][:ships].map { |ship_hash| Ship.new(ship_hash) }
       erb :"pirates/show"
     end
   end
